@@ -1,53 +1,38 @@
 class BTNode:
-    def __init__(self)->None:
-        self.children = [] 
+    def __init__(self) -> None:
+        self.children = []
         self.elements = []
         self.is_leaf = False
-    
+
 
 class BTree:
-    def __init__(self, degree: int)->None:
+    def __init__(self, degree: int) -> None:
         self.root = BTNode()
         self.root.is_leaf = True
         self.t = degree
-    
-    def search(self, node: BTNode, search_elem) -> None:
-        elem_arr = node.elements
+
+    def search(self, elements: list, search_elem) -> None:
         left = 0
-        right = len(elem_arr) - 1
-        search_index = -1
-       
+        right = len(elements) - 1
+
         while True:
             if left > right:
                 break
 
             mid = (left + right) // 2
 
-            if elem_arr[mid] < search_elem:
+            if elements[mid] < search_elem:
                 left = mid + 1
-            
-            elif elem_arr[mid] > search_elem:
+
+            elif elements[mid] > search_elem:
                 right = mid - 1
 
             else:
-                search_index = mid
                 break
 
-        
-        if search_index != -1 or node.is_leaf:
-            return node, search_index
-        
-        if elem_arr[mid] < search_elem:
-            return self.search(node.children[mid+1], search_elem)
-        
-        else:
-            return self.search(node.children[mid], search_elem)
-                
-        
+        return mid
 
-
-
-    def insert(self, string):
+    def insert(self, element):
         pass
 
 
@@ -66,5 +51,4 @@ if __name__ == "__main__":
 
     search_elem = "replica"
 
-    print(tree.search(tree.root, search_elem))
-    
+    print(tree.search(tree.root.children[1].elements, search_elem))
