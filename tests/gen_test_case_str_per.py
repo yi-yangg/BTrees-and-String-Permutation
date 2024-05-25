@@ -1,5 +1,5 @@
 import tools
-from q1.q1 import StringPermutation
+from string_permutation import StringPermutation
 from naive_string_permutation import get_results
 import random
 
