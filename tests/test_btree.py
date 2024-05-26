@@ -1,5 +1,5 @@
 import unittest
-from q2.q2 import BTree
+from btree import BTree
 class TestBTree(unittest.TestCase):
 	def initialize_and_get(self, degree, words, commands):
 		bt = BTree(degree)
